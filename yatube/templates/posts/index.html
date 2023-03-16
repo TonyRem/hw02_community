@@ -3,7 +3,13 @@
   <h1>{{ text }}</h1>
   <article>
     {% for post in posts %} {% include 'posts/post_card.html' with post=post %}
-    {% if not forloop.last %}
+    {% if post.group %}
+    <a
+      href="{% url 'posts:group_list' post.group.slug %}"
+      title="{{ post.group }}"
+      >все записи группы {{ post.group }}</a
+    >
+    {% endif %} {% if not forloop.last %}
     <hr />
     {% endif %} {% endfor %}
   </article>

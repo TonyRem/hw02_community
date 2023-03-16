@@ -8,7 +8,8 @@ def index(request):
     template = 'posts/index.html'
     posts = Post.objects.all()[:POSTS_PER_PAGE]
     context = {
-        'text': 'Последние обновления на сайте Yatube',
+        'title': 'Последние обновления на сайте',
+        'text': 'Это главная страница сайта Yatube',
         'posts': posts,
     }
     return render(request, template, context)
